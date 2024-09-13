@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:37 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/12 13:49:36 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/13 15:47:58 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 # include <fcntl.h>
 # include <sys/wait.h>
 # include "libft.h"
-#
+# include "ft_printf.h"
 
-// Struct proyect
+// Struct proyect+
 typedef struct s_pipex
 {
-	int		in_fd;
-	int		out_fd;
-	int		pipe_fd[2];
-	char	**cmd_paths;
-	char	***cmd_args;
-	int		cmd_count;
-}
+	int infd;
+    int outfd;
+    int p_id;
+    int p_id_2;
+    int pipe_fd[2];
+}   t_pipex;
+
+
 #endif
 
