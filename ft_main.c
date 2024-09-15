@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:33:03 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/14 18:12:01 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:40:52 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 	while (ft_strcmp("PATH", *envp, 4))
 		envp++;
 	return (*envp + 5)
-}*/
+}
+*/
 
 int main (int ac, char **av, char **envp)
 {
@@ -30,7 +31,7 @@ int main (int ac, char **av, char **envp)
    
 	/*if (ac != 5)
 		return (mssg("Invalid number of arguments"));
-*/
+	*/
 	if (pipe(pipex.pipe_fd) == -1)
 	{
 		return (EXIT_FAILURE);
