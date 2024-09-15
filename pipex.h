@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:37 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/14 17:36:53 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/15 15:15:40 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_pipex
 }   t_pipex;
 
 // childs
-void	f_child_process(t_pipex pipex, char *cmd, char *cmds[], char *envp[]);
+void	f_child_process(t_pipex pipex, char **av, char *cmd, char *cmds[], char *envp[]);
 void	s_child_process(t_pipex pipex, char *cmd2, char *cmds2[], char *envp[]);
 
 // error

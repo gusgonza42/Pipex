@@ -6,23 +6,24 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 17:18:34 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/14 17:53:11 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/15 15:14:59 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	f_child_process(t_pipex pipex, char *cmd, char *cmds[], char *envp[])
+void	f_child_process(t_pipex pipex, char **av, char *cmd, char *cmds[], char *envp[])
 {
-	pipex.infd = open("yow", O_RDONLY);
+	pipex.infd = open(av[1], O_RDONLY);
 	if (pipex.infd == -1)
-		return (EXIT_FAILURE); // se puede usar exit aqui o la funcion o debe ser void?
+		exit (EXIT_FAILURE); // se puede usar exit aqui o la funcion o debe ser void?
 	dup2(pipex.infd, STDIN_FILENO);
 	dup2(pipex.pipe_fd[1], STDOUT_FILENO);
 	close(pipex.pipe_fd[0]);
 	close(pipex.pipe_fd[1]);
 	close(pipex.infd);
 	execve(cmd, cmds, envp);
+	exit (EXIT_FAILURE);
 }
 
 void	s_child_process(t_pipex pipex, char *cmd2, char *cmds2[], char *envp[])
@@ -35,4 +36,5 @@ void	s_child_process(t_pipex pipex, char *cmd2, char *cmds2[], char *envp[])
 	close(pipex.infd);
 	close(pipex.outfd);
 	execve(cmd2, cmds2, envp);
+	exit (EXIT_FAILURE);
 }
