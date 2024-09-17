@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:33:03 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/15 15:54:09 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/17 12:34:48 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 int main (int ac, char **av, char **envp)
 {
 	t_pipex pipex;
-	char    *cmd = "/bin/ls";
+	/*char    *cmd = "/bin/ls";
 	char    *cmds[] = {"/bin/ls", "-la", NULL};
 	char    *cmd2 = "/bin/wc";
-	char    *cmds2[] = {"/bin/wc", "-l", NULL};
+	char    *cmds2[] = {"/bin/wc", "-l", NULL};*/
    
-	/*if (ac != 5)
+	if (ac != 5)
 		return (mssg("Invalid number of arguments"));
-	*/
+
 	if (pipe(pipex.pipe_fd) == -1)
 		return (EXIT_FAILURE);
 	//aqui tendria que ir el path osea la estructura debe tener un char *path?
@@ -38,14 +38,16 @@ int main (int ac, char **av, char **envp)
 		//papa aqui espra a que el hijo acabe
 		pipex.p_id_2 = fork();
 		if (pipex.p_id_2 == 0)
-			s_child_process(pipex, cmd2, cmds2, envp);
+			//s_child_process(pipex, cmd2, cmds2, envp);
+			s_child_process(pipex, av, envp);
 		else if (pipex.p_id_2 > 0)
 		{
 		    //papa
 			close(pipex.pipe_fd[0]);
 			close(pipex.pipe_fd[1]);
 			waitpid(pipex.p_id, 0, 0);//sspera al hijo1
-			waitpid(pipex.p_id_2, 0, 0);//espera al hijo2 yya
+			waitpid(pipex.p_id_2, 0, 0);//esp:x
+										//era al hijo2 yya
 		}
 		else
 		{
