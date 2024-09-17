@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:33:03 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/17 12:34:48 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:08:27 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int main (int ac, char **av, char **envp)
 	char    *cmd2 = "/bin/wc";
 	char    *cmds2[] = {"/bin/wc", "-l", NULL};*/
    
-	if (ac != 5)
-		return (mssg("Invalid number of arguments"));
-
+	check_args(ac);
 	if (pipe(pipex.pipe_fd) == -1)
 		return (EXIT_FAILURE);
 	//aqui tendria que ir el path osea la estructura debe tener un char *path?
@@ -32,7 +30,8 @@ int main (int ac, char **av, char **envp)
 	//u que lo divida por :
 	pipex.p_id = fork();
 	if (pipex.p_id == 0)
-		f_child_process(pipex, av, cmd, cmds, envp);
+		//f_child_process(pipex, av, cmd, cmds, envp);
+		f_child_process(pipex, av, envp);
 	else if (pipex.p_id > 0)
 	{
 		//papa aqui espra a que el hijo acabe

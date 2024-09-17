@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:37 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/15 15:15:40 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:22:46 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@
 // Struct proyect+
 typedef struct s_pipex
 {
-	int infd;
-    int outfd;
-    int p_id;
-    int p_id_2;
-    int pipe_fd[2];
+	int		infd;
+	int		outfd;
+	int		p_id;
+	int		p_id_2;
+	int		pipe_fd[2];
+	char	**arg_cmd;
+	char	*path;
 }   t_pipex;
 
 // childs
