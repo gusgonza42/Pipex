@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 17:05:28 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/18 11:22:32 by gusgonza         ###   ########.fr       */
+/*   Created: 2024/09/18 13:52:30 by gusgonza          #+#    #+#             */
+/*   Updated: 2024/09/18 13:53:58 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-int	mssg(char *fail)
+char	*ft_strjoin_free(char *s1, const char *s2)
 {
-	ft_printf("%s\n", fail);
-	return(1);
-}
+	char	*res;
+	int		i;
+	int		j;
 
-void	check_args(int ac)
-{
-	if (ac > 5)
-		mssg("Too few arguments\n");
-	if (ac < 5)
-		mssg("Too many arguments\n");
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	res = (char *)malloc(sizeof(char) * ((i + j) + 1));
+	if (!res)
+	{
+		free(s1);
+		return (NULL);
+	}
+	res[i + j] = '\0';
+	while (j--)
+		res[i + j] = s2[j];
+	while (i--)
+		res[i] = s1[i];
+	free(s1);
+	return (res);
 }
-

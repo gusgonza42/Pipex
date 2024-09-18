@@ -6,7 +6,7 @@
 /*   By: gusgonza <gusgonza@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:37 by gusgonza          #+#    #+#             */
-/*   Updated: 2024/09/17 14:22:46 by gusgonza         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:27:48 by gusgonza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,20 @@ typedef struct s_pipex
 	int		p_id_2;
 	int		pipe_fd[2];
 	char	**arg_cmd;
-	char	*path;
+	char	*envpath;
+	char	**paths;
 }   t_pipex;
 
-// childs
-void	f_child_process(t_pipex pipex, char **av, char *cmd, char *cmds[], char *envp[]);
-void	s_child_process(t_pipex pipex, char *cmd2, char *cmds2[], char *envp[]);
+// child//s
+//void	f_child_process(t_pipex pipex, char **av, char *cmd, char *cmds[], char *envp[]);
+//void	s_child_process(t_pipex pipex, char *cmd2, char *cmds2[], char *envp[]);
+
+void	f_child_process(t_pipex pipex, char **av, char *envp[]);
+void	s_child_process(t_pipex pipex, char **av, char *envp[]);
+
 
 // error
-int	mssg(char *fail);
-
+int		mssg(char *fail);
+void	check_args(int ac);
 #endif
 

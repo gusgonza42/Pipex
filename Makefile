@@ -39,7 +39,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@make -sC libft
 	@make -sC ft_printf
-	@echo "✅ 🚀 0bjects created successfully!"
+	@echo "✅ 🚀 0bjects created successfully by $(NAME)!"
 	@$(CC) -o $@ $(OBJS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
 	@echo "✅ 🛰  $(NAME) created successfully!"
 
@@ -54,14 +54,14 @@ clean:
 	@$(RM) $(OBJS) 
 	@make clean -sC libft
 	@make clean -sC ft_printf
-	@echo "🗑️  🚀 Objects destroyed successfully!"
+	@echo "🗑️  🚀 Objects destroyed successfully by $(NAME)!"
 
 # <-- Clean Execution + libft.a Destruction --> #
 fclean: clean
 	@$(RM) $(NAME)
 	@make fclean -sC libft
 	@make fclean -sC ft_printf
-	@echo "🗑️  🛰  $(NAME) destroyed successfully!"
+	@echo "🗑️  🛰  $(NAME) destroyed successfully by $(NAME)!"
 
 # <-- Re Execution -->
 re:
