@@ -26,7 +26,7 @@ HEADER = pipex.h
 MAKEFILE = Makefile
 
 # <-- Files --> #
-SRC_FILES = ft_main.c ft_childs.c ft_error.c
+SRC_FILES = ft_main.c ft_childs.c
 
 
 # <-- Objects --> #

@@ -18,11 +18,3 @@ int	mssg(char *fail)
 	return(1);
 }
 
-void	check_args(int ac)
-{
-	if (ac > 5)
-		mssg("Too few arguments\n");
-	if (ac < 5)
-		mssg("Too many arguments\n");
-}
-
